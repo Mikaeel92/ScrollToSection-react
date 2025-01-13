@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 const App = () => {
+
+  const ref = useRef()
 
   const data = [
     {
@@ -52,7 +54,7 @@ const handleClick = () => {
     <button onClick={handleClick}>Click To Scroll</button>
     {
       data.map((item, index) => (
-        <div key={index} style={item.style}>{item.label}</div>
+        <div key={index} style={item.style} ref={index === 4 ? ref : null}>{item.label}</div>
       ))
     }
     </div>
